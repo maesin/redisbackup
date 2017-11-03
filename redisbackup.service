@@ -1,0 +1,12 @@
+[Unit]
+Description=Backup Redis RDB
+
+[Service]
+ExecStart=/path/to/venv/bin/redisbackup --interval 3600 \
+                                        --port 6379 \
+                                        --copy /path/to/copy.rdb
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
